@@ -42,38 +42,3 @@ QSqlQueryModel* animateur::afficher()
 
     return model;
 }
-QSqlQueryModel* animateur::tage()
-{
-    QSqlQueryModel *model = new QSqlQueryModel();
-    model->setQuery("SELECT IDAN, NOM, PRENOM, GENRE, SPECIALITE, AGE, NBR_HEURE, STATUS FROM GESTION_ANIMATEUR ORDER BY AGE");
-
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prénom"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Genre"));
-    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Spécialité"));
-    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Âge"));
-    model->setHeaderData(6, Qt::Horizontal, QObject::tr("Nombre d'heures"));
-    model->setHeaderData(7, Qt::Horizontal, QObject::tr("Status"));
-
-
-    return model;
-}
-
-QSqlQueryModel* animateur::tgenre()
-{
-    QSqlQueryModel *model = new QSqlQueryModel();
-    model->setQuery("SELECT IDAN, NOM, PRENOM, GENRE, SPECIALITE, AGE, NBR_HEURE, STATUS FROM GESTION_ANIMATEUR ORDER BY GENRE");
-
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prénom"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Genre"));
-    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Spécialité"));
-    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Âge"));
-    model->setHeaderData(6, Qt::Horizontal, QObject::tr("Nombre d'heures"));
-    model->setHeaderData(7, Qt::Horizontal, QObject::tr("Status"));
-
-
-    return model;
-}

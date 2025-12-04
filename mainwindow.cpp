@@ -308,21 +308,7 @@ void MainWindow::on_BtnModifierAnimateur_clicked()
 
 
 
-// trie genre
-void MainWindow::on_pushButton_clicked()
-{
-    ui->tableView_2->setModel(a.tgenre());
-}
-// trie par age
-void MainWindow::on_pushButton_2_clicked()
-{
-    ui->tableView_2->setModel(a.tage());
-}
-// trie par id
-void MainWindow::on_pushButton_3_clicked()
-{
-    ui->tableView_2->setModel(a.afficher());
-}
+
 // recherche
 void MainWindow::on_lineEdit_5_textChanged(const QString &arg1)
 {
@@ -681,15 +667,15 @@ void MainWindow::on_pushButton_4_clicked()
     query.prepare(R"(
         SELECT id, nom
         FROM ACTIVITE
-        WHERE TYPE_ACT = :spec
-          AND id NOT IN (
+        WHERE
+           id NOT IN (
                 SELECT activite
                 FROM GESTION_ANIMATEUR
                 WHERE activite IS NOT NULL
           )  AND STATUS = 'Actif'
     )");
 
-    query.bindValue(":spec", specialite);
+
 
     if (!query.exec()) {
         qDebug() << "Query failed:" << query.lastError();
